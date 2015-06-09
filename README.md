@@ -9,7 +9,8 @@ remote server has an NFS mount and this server ideally has a direct GPFS mount.
 Configuration
 =============
 
-config/medusa_fixity_server.yaml contains the amqp configuration and information about the root of the files.
+config/medusa_fixity_server.yaml contains the amqp configuration and information about the root of the files. See
+the template for available parameters.
 
 Running
 =======
@@ -23,7 +24,7 @@ Requests
 
 A request is a JSON object with three fields:
 
-- action: The action being requested. Currently only 'fixity' is supported.
+- action: The action being requested. Currently only 'file_fixity' is supported.
 - parameters: Parameters needed for the action.
 - pass_through: A JSON object that the server will pass back to the client with its response. The intended use
  is for the client to be able to know what is being responded to.
@@ -39,12 +40,12 @@ A response is a JSON object with fields:
 Note that for certain errors (e.g. if the request isn't parseable as JSON) it may not be possible to return some
 of these things.
 
-fixity action:
+file_fixity action:
 
 - Incoming parameters:
 
-  - file - this is the path relative to the cfs root.
-  - types - an array of fixity algorithms to be computed. Possible values include "md5" and "sha1".
+  - path - this is the file path relative to the cfs root.
+  - algorithms - an array of names of fixity algorithms to be computed. Possible values include "md5" and "sha1".
             Unknown values will be ignored.
 	    If there are no valid values then the md5 only will be computed and returned.
 

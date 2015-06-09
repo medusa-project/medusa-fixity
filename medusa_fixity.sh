@@ -23,8 +23,7 @@ case "$1" in
 	if [ -f $PID_FILE ]; then
 	    PID=`cat $PID_FILE`
 	    COMMAND=`ps -p $PID -o comm=`
-	    #The jruby process shows up under ps with the command 'java'
-	    if [ "$COMMAND" = "java" ]; then
+	    if [ "$COMMAND" = "ruby" ]; then
 		echo "Killing medusa_fixity.rb pid: $PID"
 		kill $PID
 	    else
