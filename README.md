@@ -4,7 +4,8 @@ It receives a request to compute a fixity for a file to which it has local acces
 from a fixed route. The remote requester presumably also has access to that file and can compute the relative path,
 though the absolute path may differ. The advantages of having this server compute it instead of the remote server
 are a) the work is offloaded and b) this server is ideally has better access to the content. I.e. in our case the
-remote server has an NFS mount and this server ideally has a direct GPFS mount.
+remote server has an NFS mount and this server ideally has a direct GPFS mount. Also, this should be easily
+modifiable also to compute fixities of resources specified by urls.
 
 Configuration
 =============
