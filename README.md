@@ -54,4 +54,7 @@ And:
 
 - Outgoing parameters:
 
+  - found - a boolean telling if the file was found. If not then checksums will be empty, but the server interaction is
+  still considered to be a success.
   - checksums - an object with keys the hash types and values the computed checksums
+  

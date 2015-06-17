@@ -17,7 +17,7 @@ class MedusaFixityServer < SimpleAmqpServer::Base
     self.logger.info "Computing fixity for: #{relative_path}"
     absolute_path = File.join(self.content_root, relative_path)
     unless File.exists?(absolute_path)
-      interaction.fail_generic("File not found: #{relative_path}")
+      interaction.succeed(checksums: {}, found: false)
       return
     end
     fixities = Hash.new
@@ -25,7 +25,7 @@ class MedusaFixityServer < SimpleAmqpServer::Base
       fixities[algorithm] = compute_fixity(absolute_path, algorithm)
     end
     self.logger.info "Computed fixities: #{fixities}"
-    interaction.succeed(checksums: fixities)
+    interaction.succeed(checksums: fixities, found: true)
   end
 
   def find_algorithms(names)
