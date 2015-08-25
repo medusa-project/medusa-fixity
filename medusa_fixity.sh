@@ -23,7 +23,7 @@ case "$1" in
 	if [ -f $PID_FILE ]; then
 	    PID=`cat $PID_FILE`
 	    COMMAND=`ps -p $PID -o comm=`
-	    if [ "$COMMAND" = "ruby" ]; then
+	    if [ "$COMMAND" = "java" ]; then
 		echo "Killing medusa_fixity.rb pid: $PID"
 		kill $PID
 	    else
