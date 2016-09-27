@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/medusa-project/simple-amqp-server-jruby.git
-  revision: cd36561f9ecf99d5cb1f14cf8f5258ba1f4ceb08
+  revision: a90d3bbfb538cb9d450d4f6dd4a8a898da1ececa
   specs:
-    simple-amqp-server (1.0.10)
+    simple-amqp-server (2.0.0)
       logging
       march_hare
       retryable
@@ -11,15 +11,15 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    little-plugger (1.1.3)
-    logging (2.0.0)
+    little-plugger (1.1.4)
+    logging (2.1.0)
       little-plugger (~> 1.1)
       multi_json (~> 1.10)
     macaddr (1.7.1)
       systemu (~> 2.6.2)
-    march_hare (2.11.0-java)
-    multi_json (1.11.2)
-    retryable (2.0.2)
+    march_hare (2.18.0-java)
+    multi_json (1.12.1)
+    retryable (2.0.4)
     systemu (2.6.5)
     uuid (2.3.8)
       macaddr (~> 1.0)
