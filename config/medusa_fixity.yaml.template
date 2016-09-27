@@ -9,6 +9,8 @@ amqp:
   #Note that Bunny will want these as symbols, so the YAML should reflect that
   connection:
     :port: 5672
+log:
+  level: :info
 content:
   #File paths passed to the server are relative to this path
   root: /path/to/content/root
