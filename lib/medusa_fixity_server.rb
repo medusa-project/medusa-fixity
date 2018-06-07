@@ -3,13 +3,12 @@ require 'digest'
 
 class MedusaFixityServer < SimpleAmqpServer::Base
 
-  attr_accessor :content_root, :storage_roots, :default_root
+  attr_accessor :storage_roots, :default_root
 
   FIXITY_ALGORITHM_HASH = {'md5' => Digest::MD5, 'sha1' => Digest::SHA1}
 
   def initialize(args = {})
     super(args)
-    self.content_root = self.config.content(:root)
     self.default_root = self.config.medusa_storage(:default_root)
     self.storage_roots = MedusaStorage::RootSet.new(self.config.medusa_storage(:roots))
   end
