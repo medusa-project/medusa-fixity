@@ -17,7 +17,7 @@ class MedusaFixityServer < SimpleAmqpServer::Base
   def handle_file_fixity_request(interaction)
     key = interaction.request_parameter('path')
     storage_root = self.storage_roots.at(request_parameter('root') || self.default_root)
-    self.logger.info "Computing fixity for: #{key} for root #{storage_root}"
+    self.logger.info "Computing fixity for: #{key} for root #{storage_root.name}"
     unless storage_root.exist?(key)
       interaction.succeed(checksums: {}, found: false)
       return
