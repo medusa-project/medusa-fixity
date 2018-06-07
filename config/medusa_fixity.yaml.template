@@ -11,6 +11,15 @@ amqp:
     :port: 5672
 log:
   level: :info
+#TODO - remove this key after medusa_storage is integrated
 content:
   #File paths passed to the server are relative to this path
   root: /path/to/content/root
+medusa_storage:
+  #root to use if not specified in the incoming message
+  default_root: filesystem
+  #list of roots, following medusa_storage gem conventions
+  roots:
+    - name: filesystem
+      type: filesystem
+      path: /path/to_content_root
