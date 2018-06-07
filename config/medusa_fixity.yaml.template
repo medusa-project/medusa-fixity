@@ -19,7 +19,8 @@ medusa_storage:
   #root to use if not specified in the incoming message
   default_root: filesystem
   #list of roots, following medusa_storage gem conventions
+  #note that you'll want those to explicitly be symbols
   roots:
-    - name: filesystem
-      type: filesystem
-      path: /path/to_content_root
+    - :name: filesystem
+      :type: filesystem
+      :path: /path/to_content_root
