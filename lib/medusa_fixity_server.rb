@@ -11,7 +11,7 @@ class MedusaFixityServer < SimpleQueueServer::Base
   def initialize(args = {})
     super
     self.default_root = Settings.medusa_storage.default_root
-    self.storage_roots = MedusaStorage::RootSet.new(Settings.medusa_storage.roots.to_h)
+    self.storage_roots = MedusaStorage::RootSet.new(Settings.medusa_storage.roots.to_a)
   end
 
   def handle_file_fixity_request(interaction)
