@@ -29,6 +29,9 @@ case "$1" in
       elif [ ${COMMAND##/*/} = "./medusa_fixity.rb run" ]; then
         echo "Killing medusa_fixity.rb pid: $PID"
 		    kill $PID
+      elif [ ${COMMAND##/*/} = "bundle" ]; then
+      echo "Killing medusa_fixity.rb pid: $PID"
+      kill $PID
 	    else
 		echo "Process $PID is not medusa_fixity.rb; removing stale pid file"
 	    fi
