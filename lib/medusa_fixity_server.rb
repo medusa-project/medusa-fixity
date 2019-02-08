@@ -11,7 +11,7 @@ class MedusaFixityServer < SimpleQueueServer::Base
   def initialize(args = {})
     super
     self.default_root = Settings.medusa_storage.default_root
-    self.storage_roots = MedusaStorage::RootSet.new(Settings.medusa_storage.roots.to_h
+    self.storage_roots = MedusaStorage::RootSet.new(Settings.medusa_storage.roots.to_h)
   end
 
   def handle_file_fixity_request(interaction)
@@ -32,7 +32,7 @@ class MedusaFixityServer < SimpleQueueServer::Base
 
   def find_algorithms(names)
     names ||= []
-    algorithms = names.select { |name| FIXITY_ALGORITHM_HASH.has_key?(name) }
+    algorithms = names.select {|name| FIXITY_ALGORITHM_HASH.has_key?(name)}
     algorithms = ['md5'] if algorithms.empty?
     algorithms
   end
