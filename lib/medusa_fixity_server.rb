@@ -1,8 +1,8 @@
-require 'simple_amqp_server'
+require 'simple_queue_server'
 require 'medusa_storage'
 require 'digest'
 
-class MedusaFixityServer < SimpleAmqpServer::Base
+class MedusaFixityServer < SimpleQueueServer::Base
 
   attr_accessor :storage_roots, :default_root
 
@@ -10,8 +10,8 @@ class MedusaFixityServer < SimpleAmqpServer::Base
 
   def initialize(args = {})
     super(args)
-    self.default_root = self.config.medusa_storage('default_root')
-    self.storage_roots = MedusaStorage::RootSet.new(self.config.medusa_storage('roots'))
+    self.default_root = Settings.medusa_storage.default_root
+    self.storage_roots = MedusaStorage::RootSet.new(Settings.medusa_storage.roots.to_h
   end
 
   def handle_file_fixity_request(interaction)
