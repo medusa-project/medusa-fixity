@@ -9,7 +9,7 @@ class MedusaFixityServer < SimpleQueueServer::Base
   FIXITY_ALGORITHM_HASH = {'md5' => Digest::MD5, 'sha1' => Digest::SHA1}
 
   def initialize(args = {})
-    super(args)
+    super
     self.default_root = Settings.medusa_storage.default_root
     self.storage_roots = MedusaStorage::RootSet.new(Settings.medusa_storage.roots.to_h
   end
