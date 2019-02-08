@@ -24,8 +24,11 @@ case "$1" in
 	    PID=`cat $PID_FILE`
 	    COMMAND=`ps -p $PID -o comm=`
 	    if [ ${COMMAND##/*/} = "java" ]; then
-		echo "Killing medusa_fixity.rb pid: $PID"
-		kill $PID
+		    echo "Killing medusa_fixity.rb pid: $PID"
+		    kill $PID
+      elif [ ${COMMAND##/*/} = "./medusa_fixity.rb run" ]; then
+        echo "Killing medusa_fixity.rb pid: $PID"
+		    kill $PID
 	    else
 		echo "Process $PID is not medusa_fixity.rb; removing stale pid file"
 	    fi
