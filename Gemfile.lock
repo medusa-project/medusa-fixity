@@ -97,6 +97,7 @@ GEM
     parallel (1.12.1)
     retryable (3.0.3)
     systemu (2.6.5)
+    thread_safe (0.3.6)
     thread_safe (0.3.6-java)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
@@ -105,10 +106,11 @@ GEM
 
 PLATFORMS
   java
+  ruby
 
 DEPENDENCIES
   medusa_storage!
   simple-queue-server!
 
 BUNDLED WITH
-   1.16.4
+   1.17.2
